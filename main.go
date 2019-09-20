@@ -9,6 +9,6 @@ func (s *Str) print() {
 }
 
 func main() {
-	var message Str = "hello golang!"
+	var message Str = "hello golang!!"
 	message.print()
 }
