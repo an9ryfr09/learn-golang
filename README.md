@@ -1,3 +1,3 @@
 ### learning golang
 first day:
-use function: Println of fmt package print hello golang
+Use function the "Println" of fmt package print hello golang
