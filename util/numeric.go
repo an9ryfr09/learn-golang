@@ -1,4 +1,4 @@
-package an9ryfr09
+package util
 
 type Mydata struct {
 	Num     int
