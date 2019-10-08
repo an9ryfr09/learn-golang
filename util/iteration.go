@@ -1,6 +1,8 @@
 package util
 
-import "strings"
+import (
+	"strings"
+)
 
 func Repeat(ch string, c int, toUpper bool) string {
 	var s string
@@ -12,12 +14,4 @@ func Repeat(ch string, c int, toUpper bool) string {
 		return strings.ToUpper(s)
 	}
 	return s
-}
-
-func Sum(arr []int) int {
-	var n int
-	for _, v := range arr {
-		n += v
-	}
-	return n
 }

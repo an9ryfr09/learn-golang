@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"learning-golang/util"
+	"reflect"
 	"strings"
 	"testing"
 )
@@ -71,4 +72,20 @@ func TestSum(t *testing.T) {
 			t.Errorf("got %d want %d given, %v", got, want, numbers)
 		}
 	})
+}
+
+func TestAllSum(t *testing.T) {
+	got := util.SumAll([]int{1, 2}, []int{0, 9})
+	want := []int{3, 9}
+	if reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
+func TestAllSumTails(t *testing.T) {
+	got := util.SumAllTails([]int{1, 2}, []int{0, 9})
+	want := []int{2, 9}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
 }

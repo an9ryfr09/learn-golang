@@ -6,11 +6,8 @@ import (
 )
 
 func main() {
-	var n u.Mydata
-	var num int
-	n.Numbers = [...]int{1, 2, 3, 4, 5, 6}
-	for _, number := range n.Numbers {
-		num += number
-	}
-	fmt.Printf("%v", num)
+	var a = []int{1, 2, 3}
+	var b = []int{1, 2, 3, 4, 5}
+	c := u.SumAll(a, b)
+	fmt.Println(c)
 }
