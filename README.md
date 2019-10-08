@@ -1,6 +1,13 @@
-### learning golang
-first day:
+```learning golang log
+```
+The first day:
 Use function the "Println" of fmt package print hello golang
 
-second day:
+The second day:
 Learn unit test
+
+The third day:
+Learn slice datastruct
+
+The forth day:
+Learn struct,function and interface datastruct
