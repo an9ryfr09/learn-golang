@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	u "learning-golang/util"
+	"learning-golang/util"
 )
 
 func main() {
-	var a = []int{1, 2, 3}
+	var a = []int{}
 	var b = []int{1, 2, 3, 4, 5}
-	c := u.SumAll(a, b)
+	c := util.SumAllTails(a, b)
 	fmt.Println(c)
 }
