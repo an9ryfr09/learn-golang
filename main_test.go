@@ -107,27 +107,29 @@ func TestAllSumTails(t *testing.T) {
 }
 
 func TestPerimeter(t *testing.T) {
-	var rectangle util.Rectangle
-	rectangle.SetAttribute(20.0, 10.0)
+	var rectangle = util.Rectangle{20.0, 10.0}
 	got := rectangle.Perimeter()
 	want := 60.0
 	checkFloat(t, got, want)
 }
 
-func TestArea2(t *testing.T) {
+func TestArea(t *testing.T) {
+	checkArea := func(t *testing.T, shape util.Shape, want float64) {
+		t.Helper()
+		got := shape.Area()
+		if got != want {
+			t.Errorf("got %.2f want %.2f", got, want)
+		}
+	}
+
 	t.Run("rectangles", func(t *testing.T) {
-		var rectangle util.Rectangle
-		rectangle.SetAttribute(20.0, 10.0)
-		got := rectangle.Area()
-		want := 200.0
-		checkFloat(t, got, want)
+		rectangle := util.Rectangle{Width: 12, Height: 6}
+		checkArea(t, &rectangle, 72.0)
 	})
 
 	t.Run("circles", func(t *testing.T) {
-		var circle = util.Circle{Radius: 10}
-		got := circle.Area()
-		want := 314.1592653589793
-		checkFloat(t, got, want)
+		circle := util.Circle{Radius: 10}
+		checkArea(t, &circle, 314.1592653589793)
 	})
 
 }

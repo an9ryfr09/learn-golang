@@ -1,5 +1,6 @@
 package util
 
+//Sum ...
 func Sum(arr []int) int {
 	var n int
 	for _, v := range arr {
@@ -8,6 +9,7 @@ func Sum(arr []int) int {
 	return n
 }
 
+//SumAll ...
 func SumAll(numbersToSum ...[]int) []int {
 	lengthOfNumbers := len(numbersToSum)
 	sums := make([]int, lengthOfNumbers)
@@ -19,6 +21,7 @@ func SumAll(numbersToSum ...[]int) []int {
 	return sums
 }
 
+//SumAllTails ...
 func SumAllTails(numbersToSum ...[]int) []int {
 	var sums []int
 	for _, numbers := range numbersToSum {
