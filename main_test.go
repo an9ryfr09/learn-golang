@@ -8,6 +8,18 @@ import (
 	"testing"
 )
 
+func checkSumsSlice(t *testing.T, got, want []int) {
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
+func checkFloat(t *testing.T, got, want float64) {
+	if got != want {
+		t.Errorf("got %.2f want %.2f", got, want)
+	}
+}
+
 func TestHello(t *testing.T) {
 	name := "an9ryfr09"
 	got := util.Hello(name)
@@ -28,7 +40,7 @@ func TestAdd(t *testing.T) {
 	}
 }
 
-func ExampleAdd() {
+func Example_add() {
 	var num util.Mydata
 	num.Num = 5
 	num2 := 5
@@ -36,7 +48,7 @@ func ExampleAdd() {
 	// output: 10
 }
 
-func ExamplePrintHello() {
+func Example_printHello() {
 	var name = "yanlei"
 	fmt.Println(util.Hello(name))
 	//output: hello,yanlei
@@ -77,28 +89,20 @@ func TestSum(t *testing.T) {
 func TestAllSum(t *testing.T) {
 	got := util.SumAll([]int{1, 2}, []int{0, 9})
 	want := []int{3, 9}
-	if reflect.DeepEqual(got, want) {
-		t.Errorf("got %v want %v", got, want)
-	}
+	checkSumsSlice(t, got, want)
 }
 
 func TestAllSumTails(t *testing.T) {
-	checkSums := func(t *testing.T, got, want []int) {
-		if !reflect.DeepEqual(got, want) {
-			t.Errorf("got %v want %v", got, want)
-		}
-	}
-
 	t.Run("make the sums of some slices", func(t *testing.T) {
 		got := util.SumAllTails([]int{1, 2}, []int{0, 9})
 		want := []int{2, 9}
-		checkSums(t, got, want)
+		checkSumsSlice(t, got, want)
 	})
 
 	t.Run("safely sum empty slices", func(t *testing.T) {
 		got := util.SumAllTails([]int{}, []int{3, 4, 5})
 		want := []int{0, 9}
-		checkSums(t, got, want)
+		checkSumsSlice(t, got, want)
 	})
 }
 
@@ -107,17 +111,23 @@ func TestPerimeter(t *testing.T) {
 	rectangle.SetAttribute(20.0, 10.0)
 	got := rectangle.Perimeter()
 	want := 60.0
-	if got != want {
-		t.Errorf("got %.2f want %.2f", got, want)
-	}
+	checkFloat(t, got, want)
 }
 
-func TestArea(t *testing.T) {
-	var rectangle util.Rectangle
-	rectangle.SetAttribute(20.0, 10.0)
-	got := rectangle.Area()
-	want := 200.0
-	if got != want {
-		t.Errorf("got %.2f want %.2f", got, want)
-	}
+func TestArea2(t *testing.T) {
+	t.Run("rectangles", func(t *testing.T) {
+		var rectangle util.Rectangle
+		rectangle.SetAttribute(20.0, 10.0)
+		got := rectangle.Area()
+		want := 200.0
+		checkFloat(t, got, want)
+	})
+
+	t.Run("circles", func(t *testing.T) {
+		var circle = util.Circle{Radius: 10}
+		got := circle.Area()
+		want := 314.1592653589793
+		checkFloat(t, got, want)
+	})
+
 }
