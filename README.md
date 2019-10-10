@@ -11,3 +11,6 @@ Learn slice datastruct
 
 The forth day:
 Learn struct,function and interface datastruct
+
+The Fifth Day:
+Learn pointer and error handle
