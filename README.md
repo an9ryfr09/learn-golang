@@ -1,16 +1,22 @@
 ### learning golang log
 
-The first day:
+First days:
 Use function the "Println" of fmt package print hello golang
 
-The second day:
+Second days:
 Learn unit test
 
-The third day:
+Third days:
 Learn slice datastruct
 
-The forth day:
+Forth days:
 Learn struct,function and interface datastruct
 
-The Fifth Day:
+Fifth days:
 Learn pointer and error handle
+
+Sixth days:
+Learn data struct The Maps
+
+Seventh days:
+Learn dependent and inject(D&I)
