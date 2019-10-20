@@ -2,16 +2,18 @@ package main
 
 import (
 	"fmt"
-	"learning-golang/util"
+	"io"
+	"net/http"
 )
 
-func checkArea(shape *util.Rectangle, want float64) {
-	got := shape.Area()
-	fmt.Printf("got %.2f want %.2f", got, want)
+func Greet(writer io.Writer, name string) {
+	fmt.Fprintf(writer, "Hello, %s", name)
+}
+
+func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
+	Greet(w, "world")
 }
 
 func main() {
-	var rectangle = util.Rectangle{Width: 12, Height: 6}
-	want := 72.0
-	checkArea(&rectangle, want)
+	http.ListenAndServe(":5000", http.HandlerFunc(MyGreeterHandler))
 }
