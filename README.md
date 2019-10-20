@@ -19,4 +19,4 @@ Sixth days:
 Learn data struct The Maps
 
 Seventh days:
-Learn dependent and inject(D&I)
+Learn dependency injection(D&I)
