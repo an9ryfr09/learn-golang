@@ -20,3 +20,6 @@ Learn data struct The Maps
 
 Seventh days:
 Learn dependency injection(D&I)
+
+Eighth days:
+Learn Mocking

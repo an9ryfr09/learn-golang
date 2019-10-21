@@ -1,17 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"io"
+	"learning-golang/util"
 	"net/http"
 )
 
-func Greet(writer io.Writer, name string) {
-	fmt.Fprintf(writer, "Hello, %s", name)
-}
-
+//MyGreeterHandler ...
 func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
-	Greet(w, "world")
+	util.Greet(w, "world")
 }
 
 func main() {
