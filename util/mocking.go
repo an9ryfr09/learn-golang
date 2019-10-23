@@ -3,10 +3,31 @@ package util
 import (
 	"fmt"
 	"io"
+	"time"
 )
 
 const FINAL_WORD = "Go!"
 const COUNTDOWN_START = 3
+
+type Sleeper interface {
+	Sleep()
+}
+
+type SpySleeper struct {
+	Calls int
+}
+
+func (s *SpySleeper) Sleep() {
+	s.Calls++
+}
+
+type ConfigurableSleeper struct {
+	Duration time.Duration
+}
+
+func (o *ConfigurableSleeper) Sleep() {
+	time.Sleep(o.Duration)
+}
 
 type CountdownOperationsSpy struct {
 	Calls []string
