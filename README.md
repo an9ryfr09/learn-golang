@@ -1,4 +1,4 @@
-### learning golang log
+### learn golang log
 
 First days:
 Use function the "Println" of fmt package print hello golang
@@ -20,3 +20,18 @@ Learn data struct The Maps
 
 Seventh days:
 Learn dependency injection(D&I)
+
+Eighth days:
+Learn Mocking
+
+Tenth days:
+Learn Concurrent
+
+Eleventh days:
+Learn the select control
+
+Twelfth days:
+Learn Reflection
+
+Thirteenth days:
+Learn Http Server

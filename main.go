@@ -1,19 +1,21 @@
 package main
 
 import (
-	"fmt"
-	"io"
+	h "learning-golang/http"
+	"log"
 	"net/http"
 )
 
-func Greet(writer io.Writer, name string) {
-	fmt.Fprintf(writer, "Hello, %s", name)
-}
+type InMemoryPlayerStore struct{}
 
-func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
-	Greet(w, "world")
+func (i *InMemoryPlayerStore) GetPlayerScore(name string) int {
+	return 123
 }
 
 func main() {
-	http.ListenAndServe(":5000", http.HandlerFunc(MyGreeterHandler))
+	server := &h.PlayerServer{&InMemoryPlayerStore{}}
+
+	if err := http.ListenAndServe(":5000", server); err != nil {
+		log.Fatalf("could not listen on port 5000 %v", err)
+	}
 }
