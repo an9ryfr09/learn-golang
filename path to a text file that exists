@@ -1,0 +1,160 @@
+[Trace - 23:45:39.830 PM] Sending request 'initialize - (0)'.
+Params: {"processId":79214,"rootPath":"/Users/an9ryfr09/Project/learning-golang","rootUri":"file:///Users/an9ryfr09/Project/learning-golang","capabilities":{"workspace":{"applyEdit":true,"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"],"failureHandling":"textOnlyTransactional"},"didChangeConfiguration":{"dynamicRegistration":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"symbol":{"dynamicRegistration":true,"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"executeCommand":{"dynamicRegistration":true},"configuration":true,"workspaceFolders":true},"textDocument":{"publishDiagnostics":{"relatedInformation":true},"synchronization":{"dynamicRegistration":true,"willSave":true,"willSaveWaitUntil":true,"didSave":true},"completion":{"dynamicRegistration":true,"contextSupport":true,"completionItem":{"snippetSupport":true,"commitCharactersSupport":true,"documentationFormat":["markdown","plaintext"],"deprecatedSupport":true,"preselectSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]}},"hover":{"dynamicRegistration":true,"contentFormat":["markdown","plaintext"]},"signatureHelp":{"dynamicRegistration":true,"signatureInformation":{"documentationFormat":["markdown","plaintext"],"parameterInformation":{"labelOffsetSupport":true}}},"definition":{"dynamicRegistration":true,"linkSupport":true},"references":{"dynamicRegistration":true},"documentHighlight":{"dynamicRegistration":true},"documentSymbol":{"dynamicRegistration":true,"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]},"hierarchicalDocumentSymbolSupport":true},"codeAction":{"dynamicRegistration":true,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}}},"codeLens":{"dynamicRegistration":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"onTypeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"documentLink":{"dynamicRegistration":true},"typeDefinition":{"dynamicRegistration":true,"linkSupport":true},"implementation":{"dynamicRegistration":true,"linkSupport":true},"colorProvider":{"dynamicRegistration":true},"foldingRange":{"dynamicRegistration":true,"rangeLimit":5000,"lineFoldingOnly":true},"declaration":{"dynamicRegistration":true,"linkSupport":true}}},"initializationOptions":{},"trace":"off","workspaceFolders":[{"uri":"file:///Users/an9ryfr09/Project/learning-golang","name":"learning-golang"}]}
+
+
+[Trace - 23:45:39.831 PM] Received response 'initialize - (0)' in 1ms.
+Result: {"capabilities":{"textDocumentSync":{"openClose":true,"change":2,"save":{}},"hoverProvider":true,"completionProvider":{"triggerCharacters":["."]},"signatureHelpProvider":{"triggerCharacters":["(",","]},"definitionProvider":true,"referencesProvider":true,"documentHighlightProvider":true,"documentSymbolProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","source.organizeImports"]},"documentFormattingProvider":true,"renameProvider":{"prepareProvider":true},"documentLinkProvider":{},"typeDefinitionProvider":true,"workspace":{"workspaceFolders":{"supported":true,"changeNotifications":"workspace/didChangeWorkspaceFolders"}},"foldingRangeProvider":true},"custom":null}
+
+
+[Trace - 23:45:39.834 PM] Sending notification 'initialized'.
+Params: {}
+
+
+[Trace - 23:45:39.834 PM] Received request 'client/registerCapability - (1)'.
+Params: {"registrations":[{"id":"workspace/didChangeConfiguration","method":"workspace/didChangeConfiguration"},{"id":"workspace/didChangeWorkspaceFolders","method":"workspace/didChangeWorkspaceFolders"}]}
+
+
+[Trace - 23:45:39.835 PM] Sending notification 'textDocument/didOpen'.
+Params: {"textDocument":{"uri":"file:///Users/an9ryfr09/Project/learning-golang/http/http.go","languageId":"go","version":1,"text":"package http\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n)\n\ntype PlayerStore interface {\n\tGetPlayerScore(name string) int\n}\n\ntype PlayerServer struct {\n\tstore PlayerStore\n}\n\ntype StubPlayerStore struct {\n\tscores map[string]int\n}\n\nfunc (s *StubPlayerStore) GetPlayerScore(name string) int {\n\tif score, ok := s.scores[name]; ok {\n\t\treturn score\n\t}\n}\n\nfunc (p *PlayerServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {\n\n\tif r.Method == http.MethodPost {\n\t\tw.WriteHeader(http.StatusAccepted)\n\t\treturn\n\t}\n\n\tplayer := r.URL.Path[len(\"/players/\"):]\n\n\tscore := p.store.GetPlayerScore(player)\n\n\tif score == 0 {\n\t\tw.WriteHeader(http.StatusNotFound)\n\t}\n\n\tfmt.Fprint(w, score)\n}\n"}}
+
+
+[Trace - 23:45:39.838 PM] Sending response 'client/registerCapability - (1)' in 3ms.
+Result: {}
+
+
+[Trace - 23:45:39.861 PM] Sending request 'textDocument/documentSymbol - (1)'.
+Params: {"textDocument":{"uri":"file:///Users/an9ryfr09/Project/learning-golang/http/http.go"}}
+
+
+[Trace - 23:45:39.861 PM] Sending request 'textDocument/codeAction - (2)'.
+Params: {"textDocument":{"uri":"file:///Users/an9ryfr09/Project/learning-golang/http/http.go"},"range":{"start":{"line":23,"character":1},"end":{"line":23,"character":1}},"context":{"diagnostics":[]}}
+
+
+[Trace - 23:45:39.862 PM] Sending request 'textDocument/documentLink - (3)'.
+Params: {"textDocument":{"uri":"file:///Users/an9ryfr09/Project/learning-golang/http/http.go"}}
+
+
+[Trace - 23:45:39.996 PM] Received request 'workspace/configuration - (2)'.
+Params: {"items":[{"scopeUri":"file:///Users/an9ryfr09/Project/learning-golang","section":"gopls"},{"scopeUri":"file:///Users/an9ryfr09/Project/learning-golang","section":"gopls-learning-golang"}]}
+
+
+[Trace - 23:45:39.996 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:39 Build info\n----------\ngolang.org/x/tools/gopls v0.1.7\n    golang.org/x/tools/gopls@v0.1.7 h1:YwKf8t9h69++qCtVmc2q6fVuetFXmmu9LKoPMYLZid4=\n    golang.org/x/sync@v0.0.0-20190423024810-112230192c58 h1:8gQV6CLnAEikrhgkHFbMAEhagSSnXWGV915qUMm9mrU=\n    golang.org/x/tools@v0.0.0-20190918214516-5a1a30219888 h1:ER45Jz0UDQ3e6em1lwXVwuPf96lvyQogb7m+gEbsoPg=\n    golang.org/x/xerrors@v0.0.0-20190717185122-a985d3407aa7 h1:9zdDQZ7Thm29KFXgAX/+yaf3eVbP7djjWp/dXAppNCc=\n\nGo info\n-------\ngo version go1.13.1 darwin/amd64\n\nGO111MODULE=\"auto\"\nGOARCH=\"amd64\"\nGOBIN=\"/Users/an9ryfr09/Project/golang/bin\"\nGOCACHE=\"/Users/an9ryfr09/Library/Caches/go-build\"\nGOENV=\"/Users/an9ryfr09/Library/Application Support/go/env\"\nGOEXE=\"\"\nGOFLAGS=\"\"\nGOHOSTARCH=\"amd64\"\nGOHOSTOS=\"darwin\"\nGONOPROXY=\"\"\nGONOSUMDB=\"\"\nGOOS=\"darwin\"\nGOPATH=\"/Users/an9ryfr09/Project/golang\"\nGOPRIVATE=\"\"\nGOPROXY=\"https://goproxy.cn\"\nGOROOT=\"/usr/local/opt/go/libexec\"\nGOSUMDB=\"sum.golang.org\"\nGOTMPDIR=\"\"\nGOTOOLDIR=\"/usr/local/opt/go/libexec/pkg/tool/darwin_amd64\"\nGCCGO=\"gccgo\"\nAR=\"ar\"\nCC=\"clang\"\nCXX=\"clang++\"\nCGO_ENABLED=\"1\"\nGOMOD=\"/Users/an9ryfr09/Project/learning-golang/go.mod\"\nCGO_CFLAGS=\"-g -O2\"\nCGO_CPPFLAGS=\"\"\nCGO_CXXFLAGS=\"-g -O2\"\nCGO_FFLAGS=\"-g -O2\"\nCGO_LDFLAGS=\"-g -O2\"\nPKG_CONFIG=\"pkg-config\"\nGOGCCFLAGS=\"-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/bt/d7fr_3wx09z1wwcr6c86tmf00000gn/T/go-build114931925=/tmp/go-build -gno-record-gcc-switches -fno-common\"\n"}
+
+
+[Trace - 23:45:39.997 PM] Sending response 'workspace/configuration - (2)' in 0ms.
+Result: [null,null]
+
+
+[Trace - 23:45:40.016 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 18.335774ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"env\" \"GOMOD\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.017 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 20.164961ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"list\" \"-m\" \"-json\" \"all\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.017 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 20.1389ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"list\" \"-e\" \"-json\" \"-compiled=true\" \"-test=true\" \"-export=false\" \"-deps=true\" \"-find=false\" \"--\" \"builtin\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.035 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 16.218854ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"env\" \"GOMOD\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.037 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 17.537024ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"list\" \"-m\" \"-json\" \"all\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.061 PM] Sending request 'textDocument/foldingRange - (4)'.
+Params: {"textDocument":{"uri":"file:///Users/an9ryfr09/Project/learning-golang/http/http.go"}}
+
+
+[Trace - 23:45:40.197 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 160.660897ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"list\" \"-e\" \"-json\" \"-compiled=true\" \"-test=true\" \"-export=false\" \"-deps=true\" \"-find=false\" \"--\" \"/Users/an9ryfr09/Project/learning-golang/http\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.202 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 go/packages.Load\n\tpackages = 2"}
+
+
+[Trace - 23:45:40.202 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 go/packages.Load\n\tpackage = learning-golang/http\n\tfiles = [/Users/an9ryfr09/Project/learning-golang/http/http.go]"}
+
+
+[Trace - 23:45:40.215 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 go/packages.Load\n\tpackage = learning-golang/http\n\tfiles = [/Users/an9ryfr09/Project/learning-golang/http/http.go /Users/an9ryfr09/Project/learning-golang/http/http_test.go]"}
+
+
+[Trace - 23:45:40.232 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 14.975431ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"env\" \"GOMOD\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.236 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 16.746239ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"list\" \"-m\" \"-json\" \"all\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.377 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 143.276778ms for GOROOT=/usr/local/opt/go/libexec GOPATH=/Users/an9ryfr09/Project/golang GO111MODULE=auto PWD=/Users/an9ryfr09/Project/learning-golang go \"list\" \"-e\" \"-json\" \"-compiled=true\" \"-test=true\" \"-export=false\" \"-deps=true\" \"-find=false\" \"--\" \"/Users/an9ryfr09/Project/learning-golang/http\", stderr: \u003c\u003c\u003e\u003e\n"}
+
+
+[Trace - 23:45:40.382 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 go/packages.Load\n\tpackages = 2"}
+
+
+[Trace - 23:45:40.382 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 go/packages.Load\n\tpackage = learning-golang/http\n\tfiles = [/Users/an9ryfr09/Project/learning-golang/http/http.go]"}
+
+
+[Trace - 23:45:40.382 PM] Received notification 'window/logMessage'.
+Params: {"type":3,"message":"2019/10/30 23:45:40 go/packages.Load\n\tpackage = learning-golang/http\n\tfiles = [/Users/an9ryfr09/Project/learning-golang/http/http.go /Users/an9ryfr09/Project/learning-golang/http/http_test.go]"}
+
+
+[Trace - 23:45:40.777 PM] Received notification 'textDocument/publishDiagnostics'.
+Params: {"uri":"file:///Users/an9ryfr09/Project/learning-golang/http/http.go","diagnostics":[{"range":{"start":{"line":23,"character":0},"end":{"line":23,"character":1}},"severity":1,"source":"LSP","message":"missing return"}]}
+
+
+[Trace - 23:45:40.777 PM] Received response 'textDocument/documentSymbol - (1)' in 916ms.
+Result: [{"name":"PlayerStore","detail":"interface{...}","kind":11,"range":{"start":{"line":7,"character":5},"end":{"line":9,"character":1}},"selectionRange":{"start":{"line":7,"character":5},"end":{"line":7,"character":16}},"children":[{"name":"GetPlayerScore","kind":6,"range":{"start":{"line":8,"character":1},"end":{"line":8,"character":32}},"selectionRange":{"start":{"line":8,"character":1},"end":{"line":8,"character":15}}}]},{"name":"PlayerServer","detail":"struct{...}","kind":23,"range":{"start":{"line":11,"character":5},"end":{"line":13,"character":1}},"selectionRange":{"start":{"line":11,"character":5},"end":{"line":11,"character":17}},"children":[{"name":"store","detail":"interface{...}","kind":8,"range":{"start":{"line":12,"character":1},"end":{"line":12,"character":18}},"selectionRange":{"start":{"line":12,"character":1},"end":{"line":12,"character":6}}},{"name":"ServeHTTP","detail":"(w http.ResponseWriter, r *http.Request)","kind":6,"range":{"start":{"line":25,"character":0},"end":{"line":41,"character":1}},"selectionRange":{"start":{"line":25,"character":23},"end":{"line":25,"character":32}}}]},{"name":"StubPlayerStore","detail":"struct{...}","kind":23,"range":{"start":{"line":15,"character":5},"end":{"line":17,"character":1}},"selectionRange":{"start":{"line":15,"character":5},"end":{"line":15,"character":20}},"children":[{"name":"scores","detail":"map[string]int","kind":8,"range":{"start":{"line":16,"character":1},"end":{"line":16,"character":22}},"selectionRange":{"start":{"line":16,"character":1},"end":{"line":16,"character":7}}},{"name":"GetPlayerScore","detail":"(name string)","kind":6,"range":{"start":{"line":19,"character":0},"end":{"line":23,"character":1}},"selectionRange":{"start":{"line":19,"character":26},"end":{"line":19,"character":40}}}]}]
+
+
+[Trace - 23:45:40.777 PM] Received notification 'textDocument/publishDiagnostics'.
+Params: {"uri":"file:///Users/an9ryfr09/Project/learning-golang/http/http_test.go","diagnostics":[]}
+
+
+[Trace - 23:45:40.797 PM] Received response 'textDocument/codeAction - (2)' in 935ms.
+Result: [{"title":"Organize Imports","kind":"source.organizeImports","edit":{"changes":{"file:///Users/an9ryfr09/Project/learning-golang/http/http.go":[]}}}]
+
+
+[Trace - 23:45:40.797 PM] Received response 'textDocument/documentLink - (3)' in 935ms.
+Result: [{"range":{"start":{"line":3,"character":1},"end":{"line":3,"character":6}},"target":"https://godoc.org/fmt"},{"range":{"start":{"line":4,"character":1},"end":{"line":4,"character":11}},"target":"https://godoc.org/net/http"}]
+
+
+[Trace - 23:45:40.798 PM] Received response 'textDocument/foldingRange - (4)' in 736ms.
+Result: [{"startLine":2,"startCharacter":8,"endLine":4,"endCharacter":11,"kind":"imports"},{"startLine":7,"startCharacter":28,"endLine":8,"endCharacter":32},{"startLine":11,"startCharacter":26,"endLine":12,"endCharacter":18},{"startLine":15,"startCharacter":29,"endLine":16,"endCharacter":22},{"startLine":19,"startCharacter":59,"endLine":22,"endCharacter":2},{"startLine":20,"startCharacter":37,"endLine":21,"endCharacter":14},{"startLine":25,"startCharacter":74,"endLine":40,"endCharacter":21},{"startLine":27,"startCharacter":33,"endLine":29,"endCharacter":8},{"startLine":36,"startCharacter":16,"endLine":37,"endCharacter":36}]
+
+
+[Trace - 23:45:41.056 PM] Sending request 'textDocument/codeAction - (5)'.
+Params: {"textDocument":{"uri":"file:///Users/an9ryfr09/Project/learning-golang/http/http.go"},"range":{"start":{"line":23,"character":1},"end":{"line":23,"character":1}},"context":{"diagnostics":[{"range":{"start":{"line":23,"character":0},"end":{"line":23,"character":1}},"message":"missing return","severity":1,"source":"LSP"}]}}
+
+
+[Trace - 23:45:41.057 PM] Received response 'textDocument/codeAction - (5)' in 0ms.
+Result: [{"title":"Organize Imports","kind":"source.organizeImports","edit":{"changes":{"file:///Users/an9ryfr09/Project/learning-golang/http/http.go":[]}}}]
+
+
+[Trace - 23:45:49.328 PM] Sending request 'shutdown - (6)'.
+Params: {}
+
+
+[Trace - 23:45:49.330 PM] Received response 'shutdown - (6)' in 1ms.
+Result: {}
+
+
+[Error - 23:45:49.330 PM] on read ID?false method:"exit" Params:false Result:false Error:false
+
+
+null
+null
+
+
+
