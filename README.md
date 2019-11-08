@@ -1,37 +1,37 @@
-### learn golang log
+### learning golang with TDD(Test-Driven Development)
 
 First days:
-Use function the "Println" of fmt package print hello golang
+Use function "Println" of fmt package print hello golang
 
 Second days:
 Learn unit test
 
 Third days:
-Learn slice datastruct
+Learn the array and slice struct
 
 Forth days:
-Learn struct,function and interface datastruct
+Learn struct,function and interface data struct
 
 Fifth days:
 Learn pointer and error handle
 
 Sixth days:
-Learn data struct The Maps
+Learn the map struct
 
 Seventh days:
-Learn dependency injection(D&I)
+Learn dependency and injection(D&I)
 
 Eighth days:
-Learn Mocking
+Learn the mocking
 
 Tenth days:
-Learn Concurrent
+Learn the concurrent control(goroutine, channel)
 
 Eleventh days:
-Learn the select control
+Learn the select with concurrent control
 
 Twelfth days:
-Learn Reflection
+Learn the reflection
 
 Thirteenth days:
-Learn Http Server
+Learn the http Server
