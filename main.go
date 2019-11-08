@@ -1,7 +1,6 @@
 package main
 
 import (
-	h "learning-golang/http"
 	"log"
 	"net/http"
 )
